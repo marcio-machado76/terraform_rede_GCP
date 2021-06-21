@@ -1,8 +1,6 @@
-/*
-
-    | VPC e subnets publicas e privadas   |
-
-*/
+####################################
+# VPC e subnets publicas e privadas 
+####################################
 
 resource "google_compute_network" "vpc" {
   name                    = var.name_vpc
@@ -12,7 +10,6 @@ resource "google_compute_network" "vpc" {
 }
 
 
-/*    |Subnet publica|    */
 resource "google_compute_subnetwork" "public_subnet" {
   count         = var.subnet_count
   name          = "subnet-pub-${count.index + 1}"
@@ -22,7 +19,6 @@ resource "google_compute_subnetwork" "public_subnet" {
 }
 
 
-/*    |Subnet privada|    */
 resource "google_compute_subnetwork" "private_subnet" {
   count         = var.subnet_count
   name          = "subnet-priv-${count.index + 1}"
