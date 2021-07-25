@@ -9,7 +9,7 @@
 
 | Name | Version |
 |------|---------|
-| <a name="provider_google"></a> [google](#provider\_google) | ~> 3.0 |
+| <a name="provider_google"></a> [google](#provider\_google) | 3.76.0 |
 
 ## Modules
 
@@ -28,13 +28,12 @@ No modules.
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| <a name="input_credential"></a> [credential](#input\_credential) | Credeciais project gcp | `string` | `"/path/credentials ?"` | no |
+| <a name="input_credential"></a> [credential](#input\_credential) | Credeciais project gcp | `string` | `"./.auth/meu_acesso.json"` | no |
 | <a name="input_gcp_region"></a> [gcp\_region](#input\_gcp\_region) | Região onde serão criados os recursos | `string` | `"us-east1"` | no |
 | <a name="input_name_vpc"></a> [name\_vpc](#input\_name\_vpc) | Nome da vpc | `string` | `"vpc-mentoria"` | no |
+| <a name="input_ports_tcp_udp"></a> [ports\_tcp\_udp](#input\_ports\_tcp\_udp) | Portas de entrada do security group tcp e/ou udp | `map(object({ protocol = string, ports = list(string) }))` | <pre>{<br>  "tcp": {<br>    "ports": [<br>      "22",<br>      "80",<br>      "443",<br>      "1024-65535"<br>    ],<br>    "protocol": "tcp"<br>  },<br>  "udp": {<br>    "ports": [<br>      "0"<br>    ],<br>    "protocol": "udp"<br>  }<br>}</pre> | no |
 | <a name="input_project"></a> [project](#input\_project) | Nome do Projeto | `string` | `"mentoria-iac"` | no |
 | <a name="input_subnet_count"></a> [subnet\_count](#input\_subnet\_count) | Quantidade de subnets publicas e privadas | `number` | `2` | no |
-| <a name="input_tcp_ports"></a> [tcp\_ports](#input\_tcp\_ports) | portas tcp | `list(string)` | <pre>[<br>  "22",<br>  "80",<br>  "8080",<br>  "1024-65535"<br>]</pre> | no |
-| <a name="input_udp_ports"></a> [udp\_ports](#input\_udp\_ports) | portas udp | `list(string)` | <pre>[<br>  "0"<br>]</pre> | no |
 | <a name="input_vpc_cidrblock"></a> [vpc\_cidrblock](#input\_vpc\_cidrblock) | Range ip da VPC | `string` | `"10.10.0.0/16"` | no |
 
 ## Outputs
