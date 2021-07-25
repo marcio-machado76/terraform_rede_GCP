@@ -15,7 +15,7 @@ variable "project" {
 variable "credential" {
   description = "Credeciais project gcp"
   type        = string
-  default     = "/path/credentials ?"
+  default     = "./.auth/meu_acesso.json"
 }
 
 
@@ -39,16 +39,12 @@ variable "vpc_cidrblock" {
   default     = "10.10.0.0/16"
 }
 
+variable "ports_tcp_udp" {
+  description = "Portas de entrada do security group tcp e/ou udp"
 
-variable "tcp_ports" {
-  description = "portas tcp"
-  type        = list(string)
-  default     = ["22", "80", "8080", "1024-65535"]
-}
-
-
-variable "udp_ports" {
-  description = "portas udp"
-  type        = list(string)
-  default     = ["0"]
+  type = map(object({ protocol = string, ports = list(string) }))
+  default = {
+    tcp = { protocol = "tcp", ports = ["22", "80", "443", "1024-65535"] }
+    udp = { protocol = "udp", ports = ["0"] }
+  }
 }
