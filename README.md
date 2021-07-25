@@ -28,7 +28,7 @@ No modules.
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| <a name="input_credential"></a> [credential](#input\_credential) | Credeciais project gcp | `string` | `"./.auth/meu_acesso.json"` | no |
+| <a name="input_credential"></a> [credential](#input\_credential) | Credeciais de conta/project gcp, path do arquivo.json | `string` | `" "` | no |
 | <a name="input_gcp_region"></a> [gcp\_region](#input\_gcp\_region) | Região onde serão criados os recursos | `string` | `"us-east1"` | no |
 | <a name="input_name_vpc"></a> [name\_vpc](#input\_name\_vpc) | Nome da vpc | `string` | `"vpc-mentoria"` | no |
 | <a name="input_ports_tcp_udp"></a> [ports\_tcp\_udp](#input\_ports\_tcp\_udp) | Portas de entrada do security group tcp e/ou udp | `map(object({ protocol = string, ports = list(string) }))` | <pre>{<br>  "tcp": {<br>    "ports": [<br>      "22",<br>      "80",<br>      "443",<br>      "1024-65535"<br>    ],<br>    "protocol": "tcp"<br>  },<br>  "udp": {<br>    "ports": [<br>      "0"<br>    ],<br>    "protocol": "udp"<br>  }<br>}</pre> | no |
